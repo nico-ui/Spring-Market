@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name = "productos")//nombre de clase diff a nombre de tabla en DB
@@ -35,5 +37,9 @@ public class Producto {
 
     @Getter @Setter
     private boolean estado;
+
+    @ManyToOne
+    @Getter @Setter @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;//recuperar categoria pertenece a un producto
 
 }
