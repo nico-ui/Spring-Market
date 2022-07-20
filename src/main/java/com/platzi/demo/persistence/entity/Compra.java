@@ -1,5 +1,8 @@
 package com.platzi.demo.persistence.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,67 +17,23 @@ public class Compra {
     //Buena practica nombrar clases en singular y comenzando con mayuscula
 
     @Id
-    @Column(name = "id_compra")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter @Setter @Column(name = "id_compra")
     private Integer idCompra;
 
-    @Column(name = "id_cliente")
+    @Getter @Setter @Column(name = "id_cliente")
     private String idCliente;
 
+    @Getter @Setter
     private LocalDateTime fecha;
 
-    @Column(name = "medio_pago")
+    @Getter @Setter @Column(name = "medio_pago")
     private String medioPago;
 
+    @Getter @Setter
     private String comentario;
 
+    @Getter @Setter
     private String estado;
 
-    public Integer getIdCompra() {
-        return idCompra;
-    }
-
-    public void setIdCompra(Integer idCompra) {
-        this.idCompra = idCompra;
-    }
-
-    public String getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public LocalDateTime getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getMedioPago() {
-        return medioPago;
-    }
-
-    public void setMedioPago(String medioPago) {
-        this.medioPago = medioPago;
-    }
-
-    public String getComentario() {
-        return comentario;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
 }
