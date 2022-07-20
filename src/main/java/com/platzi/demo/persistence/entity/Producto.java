@@ -10,7 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
+
 @Entity
 @Table(name = "productos")//nombre de clase diff a nombre de tabla en DB
 public class Producto {
@@ -42,4 +45,8 @@ public class Producto {
     @Getter @Setter @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
     private Categoria categoria;//recuperar categoria pertenece a un producto
 
+    /*
+    @Getter @Setter @OneToMany(mappedBy = "producto")
+    private List<ComprasProducto> comprasProducto; //No es necesario crear todas las relaciones, solo las que creamos pertinentes para nuestro proyecto, fin de mejorar el rendimiento de la app
+    */
 }

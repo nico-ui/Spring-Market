@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,5 +24,13 @@ public class ComprasProducto {
 
     @Getter @Setter
     private boolean estado;
+
+    @ManyToOne
+    @Getter @Setter @JoinColumn(name = "id_compra", insertable = false, updatable = false)
+    private Compra compra;
+
+    @ManyToOne
+    @Getter @Setter @JoinColumn(name = "id_producto", insertable = false, updatable = false)
+    private Producto producto;
 
 }
