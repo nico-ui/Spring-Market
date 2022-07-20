@@ -1,5 +1,8 @@
 package com.platzi.demo.persistence.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -8,36 +11,16 @@ import javax.persistence.Table;
 @Table(name = "compras_productos")
 public class ComprasProducto {
 
-    @EmbeddedId
+    @Getter @Setter @EmbeddedId
     private ComprasProductoPK id;
 
+    @Getter @Setter
     private Integer cantidad;
 
+    @Getter @Setter
     private Double total;
 
+    @Getter @Setter
     private boolean estado;
 
-    public Integer getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(Integer cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public Double getTotal() {
-        return total;
-    }
-
-    public void setTotal(Double total) {
-        this.total = total;
-    }
-
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
 }
