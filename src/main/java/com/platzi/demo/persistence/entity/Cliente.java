@@ -6,7 +6,10 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 //buena practica no usar *
 
 @Entity
@@ -31,5 +34,8 @@ public class Cliente {
 
     @Getter @Setter @Column(name = "correo_electronico")
     private String correoElectronico;
+
+    @Getter @Setter @OneToMany(mappedBy = "cliente")
+    private List<Compra> compras;
 
 }

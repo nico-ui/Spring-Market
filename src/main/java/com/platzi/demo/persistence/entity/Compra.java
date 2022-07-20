@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
@@ -35,5 +37,9 @@ public class Compra {
 
     @Getter @Setter
     private String estado;
+
+    @ManyToOne
+    @Getter @Setter @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
+    private Cliente cliente;
 
 }
